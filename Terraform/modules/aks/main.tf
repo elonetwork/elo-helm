@@ -2,7 +2,7 @@
 
 
 resource "azurerm_kubernetes_cluster" "aks_cluster" {
-  name                = format("%s_aks_cluster", var.env_name)
+  name                = local.aks_cluster_name
   resource_group_name = var.resource_group_name
   location            = var.location
 
@@ -31,7 +31,7 @@ azure_policy_enabled = false
     client_secret = var.aks_service_principal.client_secret
   }
   default_node_pool {
-    name           = "nodepool"
+    name           = var.nodepool_name
     vm_size        = "Standard_D2s_v3"
     node_count     = 3
     vnet_subnet_id = var.aks_subnet_id
@@ -41,8 +41,5 @@ azure_policy_enabled = false
     Environement = var.environement
   }
 }
-
-
-
 
 

@@ -8,6 +8,10 @@ variable "location" {
   description = "Location of Azure resources"
 }
 
+variable "nodepool_name" {
+  default = "nodepool"
+}
+
 variable "appgw_id" {
   
 }
