@@ -30,7 +30,6 @@ spec:
           operator: In
           values:
           - aks-akspoolprd-49056248-vmss000000
----
 apiVersion: v1
 kind: PersistentVolumeClaim
 metadata:
