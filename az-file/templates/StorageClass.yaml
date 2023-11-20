@@ -1,7 +1,7 @@
 apiVersion: storage.k8s.io/v1
 kind: StorageClass
 metadata:
-  name: azurefile
+  name: azure-file-sc
 provisioner: file.csi.azure.com
 reclaimPolicy: Delete
 volumeBindingMode: Immediate
