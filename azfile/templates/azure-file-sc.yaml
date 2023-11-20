@@ -1,0 +1,19 @@
+allowVolumeExpansion: true
+apiVersion: storage.k8s.io/v1
+kind: StorageClass
+metadata:
+  labels:
+    kubernetes.io/cluster-service: "true"
+  name: elosc
+mountOptions:
+- mfsymlinks
+- actimeo=30
+- nosharesock
+parameters:
+  skuName: Standard_LRS
+  location: eastus
+  storageAccount: hubspokesacount0
+  resourceGroup : 1-8471fd86-playground-sandbox
+provisioner: file.csi.azure.com
+reclaimPolicy: Delete
+volumeBindingMode: Immediate

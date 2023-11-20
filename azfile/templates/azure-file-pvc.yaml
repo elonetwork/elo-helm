@@ -1,0 +1,11 @@
+apiVersion: v1
+kind: PersistentVolumeClaim
+metadata:
+  name: elopvc
+spec:
+  accessModes:
+    - ReadWriteMany
+  storageClassName: elosc
+  resources:
+    requests:
+      storage: 2Gi
