@@ -13,7 +13,7 @@ parameters:
   skuName: Standard_LRS
   location: eastus
   storageAccount: hubspokesacount0
-  resourceGroup : 1-8471fd86-playground-sandbox
+  resourceGroup : 1-1b74313b-playground-sandbox
 provisioner: file.csi.azure.com
 reclaimPolicy: Delete
 volumeBindingMode: Immediate
