@@ -3,7 +3,7 @@ include "root" {
 }
 
 terraform{
-    source="../../Terraform//cluster_compnents/az-file"
+    source="../../Terraform//cluster_compnents"
 }
 
 inputs={
