@@ -1,9 +1,8 @@
-
 apiVersion: apps/v1
 kind: Deployment
 metadata:
   name: jenkins
-  namespace: devops-tools
+  namespace: default
 spec:
   replicas: 1
   selector:
@@ -15,16 +14,15 @@ spec:
         app: jenkins-server
     spec:
       securityContext:
-            fsGroup: 1000
-            runAsUser: 1000
+            runAsUser: 0
       serviceAccountName: jenkins-admin
       containers:
         - name: jenkins
           image: jenkins/jenkins:lts
-          resources:
-            limits:
-              memory: "2Gi"
-              cpu: "1000m"            
+          lifecycle:
+            postStart:
+              exec:
+                command: ["/bin/sh", "-c", "sed -i 's/<excludeClientIPFromCrumb>false<\/excludeClientIPFromCrumb>/<excludeClientIPFromCrumb>true<\/excludeClientIPFromCrumb>/' /var/jenkins_home/config.xml"]
           ports:
             - name: httpport
               containerPort: 8080
@@ -35,17 +33,17 @@ spec:
               path: "/login"
               port: 8080
             initialDelaySeconds: 90
-            periodSeconds: 10
-            timeoutSeconds: 5
-            failureThreshold: 5
+            periodSeconds: 20
+            timeoutSeconds: 20
+            failureThreshold: 20
           readinessProbe:
             httpGet:
               path: "/login"
               port: 8080
             initialDelaySeconds: 60
-            periodSeconds: 10
-            timeoutSeconds: 5
-            failureThreshold: 3
+            periodSeconds: 20
+            timeoutSeconds: 20
+            failureThreshold: 20
           volumeMounts:
             - name: jenkins-data
               mountPath: /var/jenkins_home

@@ -2,8 +2,8 @@
 terraform {
   backend "azurerm" {
         key = "./terraform.tfstate"
-        resource_group_name = "1-c395a8de-playground-sandbox"
+        resource_group_name = "1-62352bfd-playground-sandbox"
         storage_account_name = "pseudo00210"
-        container_name = "hub"
+        container_name = "prod"
   }
 }

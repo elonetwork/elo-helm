@@ -1,28 +1,9 @@
 resource "azurerm_web_application_firewall_policy" "app_gateway_firewall_policy" {
   name                = "example-wafpolicy"
   resource_group_name = var.resource_group_name
-  location            = var.location 
-
-  policy_settings {
-    enabled                     = true
-    mode                        = "Prevention"
-    request_body_check          = true
-    file_upload_limit_in_mb     = 100
-    max_request_body_size_in_kb = 128
-  }
+  location            = var.location   
 
   managed_rules {
-    exclusion {
-      match_variable          = "RequestHeaderNames"
-      selector                = "x-company-secret-header"
-      selector_match_operator = "Equals"
-    }
-    exclusion {
-      match_variable          = "RequestCookieNames"
-      selector                = "too-tasty"
-      selector_match_operator = "EndsWith"
-    }
-
     managed_rule_set {
       type    = "OWASP"
       version = "3.2"
@@ -62,10 +43,8 @@ resource "azurerm_application_gateway" "app_gateway" {
   backend_http_settings {
     name                  = local.http_setting_name
     cookie_based_affinity = "Disabled"
-    path                  = "/path1/"
     port                  = 80
     protocol              = "Http"
-    request_timeout       = 60
   }
 
   gateway_ip_configuration {

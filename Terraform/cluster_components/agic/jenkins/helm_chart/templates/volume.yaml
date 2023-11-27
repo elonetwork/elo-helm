@@ -1,0 +1,30 @@
+kind: StorageClass
+apiVersion: storage.k8s.io/v1
+metadata:
+  name: az-file-storage
+provisioner: file.csi.azure.com
+reclaimPolicy: Delete
+volumeBindingMode: Immediate
+allowVolumeExpansion: true
+mountOptions:
+  - mfsymlinks
+  - nosharesock
+  - actimeo=30
+parameters:
+  skuName: Standard_LRS
+  location: {{ .Values.location}}
+  resourceGroup: {{ .Values.ressource_group_name }}
+  storageAccount: {{ .Values.storageAccount_name }}
+  
+---
+apiVersion: v1
+kind: PersistentVolumeClaim
+metadata:
+  name: jenkins-pv-claim
+spec:
+  storageClassName: az-file-storage
+  accessModes:
+    - ReadWriteOnce
+  resources:
+    requests:
+      storage: 10Gi
