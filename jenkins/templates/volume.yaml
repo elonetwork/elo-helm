@@ -61,7 +61,7 @@
 # parameters:
 #   skuName: Standard_LRS
 #   location: southcentralus
-#   resourceGroup: 1-7d511318-playground-sandbox
+#   resourceGroup: 1-c02d1bd7-playground-sandbox
 #   storageAccount: vsstorage4terraform
 kind: StorageClass
 apiVersion: storage.k8s.io/v1
@@ -99,14 +99,14 @@ spec:
     - ReadWriteOnce
   local:
     path: /mnt
-  nodeAffinity:
-    required:
-      nodeSelectorTerms:
-      - matchExpressions:
-        - key: kubernetes.io/hostname
-          operator: In
-          values:
-          - aks-akspoolprd-32890114-vmss000000
+  # nodeAffinity:
+  #   required:
+  #     nodeSelectorTerms:
+  #     - matchExpressions:
+  #       - key: kubernetes.io/hostname
+  #         operator: In
+  #         values:
+  #         - aks-akspoolprd-32890114-vmss000000
 ---
 apiVersion: v1
 kind: PersistentVolumeClaim
