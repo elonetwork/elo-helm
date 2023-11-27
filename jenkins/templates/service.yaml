@@ -10,12 +10,13 @@ metadata:
 spec:
   selector: 
     app: jenkins-server
-  type: ClusterIP  
-  # type: NodePort
+  # type: ClusterIP  
+  type: NodePort
   ports:
     - port: 8080
       targetPort: 8080
-      # nodePort: 32000
+      nodePort: 32000
+    externalTrafficPolicy: 'Local'
 
 # apiVersion: v1
 # kind: Service
