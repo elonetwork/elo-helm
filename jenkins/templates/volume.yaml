@@ -99,14 +99,14 @@ spec:
     - ReadWriteOnce
   local:
     path: /mnt
-  # nodeAffinity:
-  #   required:
-  #     nodeSelectorTerms:
-  #     - matchExpressions:
-  #       - key: kubernetes.io/hostname
-  #         operator: In
-  #         values:
-  #         - aks-akspoolprd-32890114-vmss000000
+  nodeAffinity:
+    required:
+      nodeSelectorTerms:
+      - matchExpressions:
+        - key: kubernetes.io/hostname
+          operator: In
+          values:
+          - aks-akspoolprd-32890114-vmss000000
 ---
 apiVersion: v1
 kind: PersistentVolumeClaim
