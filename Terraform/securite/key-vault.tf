@@ -5,7 +5,7 @@ resource "random_string" "random" {
   special          = false
 }
 resource "azurerm_key_vault" "key_valt" {
-  name                        = format("%s_%s",var.key_vault_name, random_string.random.result)
+  name                        = format("%s%s",var.key_vault_name, random_string.random.result)
   location                    = var.location
   resource_group_name         = var.resource_group_name
   enabled_for_disk_encryption = true

@@ -14,10 +14,6 @@ output "aks_cluster_config" {
 
 }
 
-output "node_name" {
-  value = data.local_file.node_name.content
-}
-
 output "aks_cluster_identity" {
   value = azurerm_kubernetes_cluster.aks_cluster.identity
 }

@@ -7,7 +7,7 @@ dependencies {
 }
 
 terraform{
-    source="../../../Terraform//cluster_components/helm_release/"
+    source="../../../Terraform//cluster_components/az-file/tf_helm_release/"
 }
 
 

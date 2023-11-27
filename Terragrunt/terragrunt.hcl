@@ -24,7 +24,7 @@ generate "backend" {
 terraform {
   backend "azurerm" {
         key = "${path_relative_to_include()}/terraform.tfstate"
-        resource_group_name = "1-fa30263e-playground-sandbox"
+        resource_group_name = "1-c395a8de-playground-sandbox"
         storage_account_name = "pseudo00210"
         container_name = "hub"
   }
@@ -36,7 +36,7 @@ remote_state {
     backend = "azurerm"
     config = {
         key = "${path_relative_to_include()}/terraform.tfstate"
-        resource_group_name = "1-fa30263e-playground-sandbox"
+        resource_group_name = "1-c395a8de-playground-sandbox"
         storage_account_name = "pseudo00210"
         container_name = "prod"
     }
@@ -44,7 +44,7 @@ remote_state {
 
 inputs= {
      location = "westus"
-      resource_group_name = "1-fa30263e-playground-sandbox"
+      resource_group_name = "1-c395a8de-playground-sandbox"
       env_name = "prd"
       environement = "Production"
       hub_storage_account_name = "pseudo00210"
