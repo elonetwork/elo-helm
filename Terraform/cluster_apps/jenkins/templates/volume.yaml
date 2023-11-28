@@ -13,7 +13,7 @@ mountOptions:
 parameters:
   skuName: Standard_LRS
   location: westus
-  resourceGroup: 1-f8b93685-playground-sandbox
+  resourceGroup: 1-7c5b51a2-playground-sandbox
   storageAccount: hubspokesacount0
 ---
 apiVersion: v1

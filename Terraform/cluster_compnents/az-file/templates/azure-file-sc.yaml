@@ -13,7 +13,7 @@ parameters:
   skuName: Standard_LRS
   location: westus
   storageAccount: hubspokesacount0
-  resourceGroup : 1-f8b93685-playground-sandbox
+  resourceGroup : 1-7c5b51a2-playground-sandbox
 provisioner: file.csi.azure.com
 reclaimPolicy: Delete
 volumeBindingMode: Immediate
