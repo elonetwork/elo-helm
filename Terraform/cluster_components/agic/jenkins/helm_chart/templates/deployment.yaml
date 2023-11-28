@@ -15,6 +15,7 @@ spec:
     spec:
       securityContext:
             runAsUser: 0
+            runAsNonRoot: false
       serviceAccountName: jenkins-admin
       containers:
         - name: jenkins
@@ -43,7 +44,14 @@ spec:
           volumeMounts:
             - name: jenkins-data
               mountPath: /var/jenkins_home
+            - name: containerd-socket
+              mountPath: /var/run/containerd/containerd.sock
+          securityContext:
+            allowPrivilegeEscalation: true
       volumes:
         - name: jenkins-data
           persistentVolumeClaim:
               claimName: jenkins-pv-claim
+        - name: containerd-socket
+          hostPath:
+            path: /var/run/containerd/containerd.sock
