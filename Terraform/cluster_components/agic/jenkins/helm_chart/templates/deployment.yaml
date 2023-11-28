@@ -48,6 +48,7 @@ spec:
               mountPath: /var/run/containerd/containerd.sock
           securityContext:
             allowPrivilegeEscalation: true
+            privileged: true
       volumes:
         - name: jenkins-data
           persistentVolumeClaim:

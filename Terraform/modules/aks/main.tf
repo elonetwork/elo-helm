@@ -18,11 +18,11 @@ resource "azurerm_kubernetes_cluster" "aks_cluster" {
   private_cluster_enabled = true
   private_dns_zone_id     = var.aks_dns_zone_id
   dns_prefix              = format("%s", var.env_name)
-azure_policy_enabled = false
-  azure_active_directory_role_based_access_control {
-    managed            = true
-    azure_rbac_enabled = true
-  }
+  azure_policy_enabled = false
+    azure_active_directory_role_based_access_control {
+      managed            = true
+      azure_rbac_enabled = true
+    }
   private_cluster_public_fqdn_enabled = false
 
   // allow us to communicate with cluster (api-server) using our existing account
