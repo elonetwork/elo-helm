@@ -19,10 +19,6 @@ spec:
       containers:
         - name: jenkins
           image: jenkins/jenkins:lts
-          lifecycle:
-            postStart:
-              exec:
-                command: ["/bin/sh", "-c", "sed -i 's/<excludeClientIPFromCrumb>false<\/excludeClientIPFromCrumb>/<excludeClientIPFromCrumb>true<\/excludeClientIPFromCrumb>/' /var/jenkins_home/config.xml"]
           ports:
             - name: httpport
               containerPort: 8080
