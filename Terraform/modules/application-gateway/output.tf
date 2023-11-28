@@ -9,3 +9,4 @@ output "application_gateway_name" {
 output "appgw_id" {
  value =  azurerm_application_gateway.app_gateway.id
 }
+
