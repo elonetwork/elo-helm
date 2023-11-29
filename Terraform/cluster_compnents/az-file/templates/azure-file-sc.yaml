@@ -3,17 +3,44 @@ apiVersion: storage.k8s.io/v1
 kind: StorageClass
 metadata:
   labels:
+    addonmanager.kubernetes.io/mode: EnsureExists
     kubernetes.io/cluster-service: "true"
-  name: elosc
+  name: eloscnfs
 mountOptions:
-- mfsymlinks
-- actimeo=30
-- nosharesock
+  - -o allow_other
+  - --file-cache-timeout-in-seconds=120
+  - --use-attr-cache=true
+  - --cancel-list-on-mount-seconds=10  # prevent billing charges on mounting
+  - -o attr_timeout=120
+  - -o entry_timeout=120
+  - -o negative_timeout=120
+  - --log-level=LOG_WARNING  # LOG_WARNING, LOG_INFO, LOG_DEBUG
+  - --cache-size-mb=1000  # Default will be 80%
 parameters:
   skuName: Standard_LRS
   location: southcentralus
   storageAccount: hubspokesacount0
   resourceGroup : 1-9b84ea26-playground-sandbox
-provisioner: file.csi.azure.com                             # blob.csi.azure.com          azure blob
+provisioner: blob.csi.azure.com
 reclaimPolicy: Delete
 volumeBindingMode: Immediate
+
+# allowVolumeExpansion: true
+# apiVersion: storage.k8s.io/v1
+# kind: StorageClass
+# metadata:
+#   labels:
+#     kubernetes.io/cluster-service: "true"
+#   name: elosc
+# mountOptions:
+# - mfsymlinks
+# - actimeo=30
+# - nosharesock
+# parameters:
+#   skuName: Standard_LRS
+#   location: southcentralus
+#   storageAccount: hubspokesacount0
+#   resourceGroup : 1-9b84ea26-playground-sandbox
+# provisioner: file.csi.azure.com                             # blob.csi.azure.com          azure blob
+# reclaimPolicy: Delete
+# volumeBindingMode: Immediate
