@@ -14,7 +14,10 @@ dependency "infrastructure" {  //export module
   config_path = "../../Terragrunt/infrastructure/"
 }
 
-
 inputs = {
-  aks_subnet_id = dependency.infrastructure.outputs.aks_subnet_id
+  subnet_ids = {
+    self_hosted_agents = dependency.infrastructure.outputs.hosted_agents_subnet_id
+    aks = dependency.infrastructure.outputs.aks_subnet_id
+  }
+
 }

@@ -13,6 +13,7 @@ variable "environement" {
 locals {
   nsg_names =  {
     aks_nsg = format("%s_aks_nsg", var.env_name)
+    self_hosted_agents_nsg = format("%s_self_hosted_agents_nsg", var.env_name)
   }  
 }
 

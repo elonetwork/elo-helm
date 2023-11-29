@@ -23,3 +23,5 @@ resource "azurerm_network_interface" "windows_agent1_nic" {
   }
 }
 
+
+
