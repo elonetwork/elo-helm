@@ -1,6 +1,6 @@
-variable "linux_agent1_vm_name" {
+variable "linux_agent_vm_name" {
   description = "The name of the bastion virtual machine"
-  default     = "linux_agent1_vm_name-vm" 
+  default     = "linux_agent_vm_name-vm" 
 }
 
 variable "admin_username" {
@@ -8,7 +8,7 @@ variable "admin_username" {
   default     = "adminuser"  # Replace with your default value
 }
 
-variable "windows_agent1_vm_name" {
+variable "windows_agent_vm_name" {
   description = "The name of the bastion virtual machine"
-  default     = "windows_agent1_vm_name-vm" 
+  default     = "windows_agent_vm_name-vm" 
 }

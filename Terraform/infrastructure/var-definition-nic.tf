@@ -1,18 +1,18 @@
-variable "linux_agent1_vm_nic_name" {
+variable "linux_agent_vm_nic_name" {
   description = "The name of the bastion network interface"
-  default     = "linux_agent1_vm_nic"  
+  default     = "linux_agent_vm_nic"  
 }
 
-variable "windows_agent1_vm_nic_name_name" {
+variable "windows_agent_vm_nic_name_name" {
   description = "The name of the network interface for Squid VM"
-  default     = "windows_agent1_vm_nic"
+  default     = "windows_agent_vm_nic"
 }
 
 
-variable "linux_agent1_ip_configuration_name" {
-  default = "linux_agent1_ip_configuration"
+variable "linux_agent_ip_configuration_name" {
+  default = "linux_agent_ip_configuration"
 }
 
-variable "windows_agent1_ip_configuration_name" {
-  default = "windows_agent1_ip_configuration"
+variable "windows_agent_ip_configuration_name" {
+  default = "windows_agent_ip_configuration"
 }

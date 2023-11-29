@@ -1,10 +1,10 @@
 
 
-resource "azurerm_linux_virtual_machine" "linux_agent1_vm" {
-  name                  = var.linux_agent1_vm_name
+resource "azurerm_linux_virtual_machine" "linux_agent_vm" {
+  name                  = var.linux_agent_vm_name
   location              = var.location
   resource_group_name   = var.resource_group_name
-  network_interface_ids = [azurerm_network_interface.linux_agent1_nic.id]
+  network_interface_ids = [azurerm_network_interface.linux_agent_nic.id]
   size                  = "Standard_F2"
 
   admin_username        = var.admin_username
@@ -28,15 +28,15 @@ resource "azurerm_linux_virtual_machine" "linux_agent1_vm" {
 
 
 
-resource "azurerm_windows_virtual_machine" "windows_agent1_vm" {
-  name                = var.windows_agent1_vm_name
+resource "azurerm_windows_virtual_machine" "windows_agent_vm" {
+  name                = var.windows_agent_vm_name
   location              = var.location
   resource_group_name   = var.resource_group_name
   size                = "Standard_F2"
   admin_username      = "adminuser"
   admin_password      = "P@$$w0rd1234!"
   network_interface_ids = [
-    azurerm_network_interface.windows_agent1_nic.id,
+    azurerm_network_interface.windows_agent_nic.id,
   ]
 
   os_disk {
