@@ -11,9 +11,9 @@ mountOptions:
 - nosharesock
 parameters:
   skuName: Standard_LRS
-  location: westus
+  location: southcentralus
   storageAccount: hubspokesacount0
-  resourceGroup : 1-7c5b51a2-playground-sandbox
-provisioner: file.csi.azure.com                             # blob.csi.azure.com azure blob
+  resourceGroup : 1-9b84ea26-playground-sandbox
+provisioner: file.csi.azure.com                             # blob.csi.azure.com          azure blob
 reclaimPolicy: Delete
 volumeBindingMode: Immediate

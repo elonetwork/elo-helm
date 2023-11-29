@@ -12,8 +12,8 @@ mountOptions:
   - actimeo=30
 parameters:
   skuName: Standard_LRS
-  location: westus
-  resourceGroup: 1-7c5b51a2-playground-sandbox
+  location: southcentralus
+  resourceGroup: 1-9b84ea26-playground-sandbox
   storageAccount: hubspokesacount0
 ---
 apiVersion: v1

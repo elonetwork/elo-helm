@@ -7,7 +7,7 @@ terraform{
 }
 
 // inputs={
-//   location = "westus"
-//   resource_group_name = "1-7c5b51a2-playground-sandbox"
+//   location = "southcentralus"
+//   resource_group_name = "1-9b84ea26-playground-sandbox"
 //   sc_name = "elostorageaccount7"
 // }
