@@ -9,7 +9,7 @@ variable "hub_container_name" {
 }
 
 
-variable "hub_key" {
+variable "infrastructure_hub_key" {
   
 }
 
@@ -19,7 +19,7 @@ data "terraform_remote_state" "hub_data" {
     resource_group_name = var.resource_group_name
     storage_account_name = var.hub_storage_account_name
     container_name = var.hub_container_name
-    key = var.hub_key
+    key = var.infrastructure_hub_key
   }
 }
 
