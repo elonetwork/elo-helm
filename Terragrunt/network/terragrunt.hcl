@@ -19,4 +19,8 @@ dependency "infrastructure" {
 inputs = {
   prod_vnet_id = dependency.infrastructure.outputs.prd_vnet_id
   prod_vnet_name = dependency.infrastructure.outputs.prd_vnet_name
+  subnet_ids = {
+    hosted_agents_subnet = dependency.infrastructure.outputs.hosted_agents_subnet_id
+    
+  }
 }
