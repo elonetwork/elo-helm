@@ -2,7 +2,7 @@ az login --use-device-code
 git clone https://github.com/elonetwork/elo-helm.git
 
 cd elo-helm/
-git switch fat/elhajjout-abderrahman
+git switch feat/elhajjout-abderrahman
 cd Terragrunt/
 #//todo change values of resource group and other values
 terragrunt  run-all apply  --terragrunt-exclude-dir "**/.terragrunt-cache/**/*"  --terragrunt-exclude-dir "./cluster_components/**/*"
