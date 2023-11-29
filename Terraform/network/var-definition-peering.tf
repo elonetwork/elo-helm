@@ -21,9 +21,8 @@ data "terraform_remote_state" "infrastructure_hub_data" {
 }
 
 locals {
-  hub_vnet_id = data.terraform_remote_state.hub_data.outputs.hub_vnet_id
-  hub_vnet_name = data.terraform_remote_state.hub_data.outputs.hub_vnet_name
-  firewall_private_ip_address = data.terraform_remote_state.hub_data.outputs.firewall_private_ip_address
+  hub_vnet_id = data.terraform_remote_state.infrastructure_hub_data.outputs.hub_vnet_id
+  hub_vnet_name = data.terraform_remote_state.infrastructure_hub_data.outputs.hub_vnet_name
 }
 
 variable "hub_storage_account_name" {}

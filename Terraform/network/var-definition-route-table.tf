@@ -24,5 +24,7 @@ data "terraform_remote_state" "security_hub_data" {
     key = var.securite_hub_key
   }
 }
-
+locals {
+  firewall_private_ip_address = data.terraform_remote_state.security_hub_data.outputs.firewall_private_ip_address
+}
 variable "securite_hub_key" {}
