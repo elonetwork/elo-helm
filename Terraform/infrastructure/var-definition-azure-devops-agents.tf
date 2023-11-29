@@ -1,6 +1,6 @@
 variable "linux_agent_vm_name" {
   description = "The name of the bastion virtual machine"
-  default     = "linux_agent_vm_name-vm" 
+  default     = "linux-agent" 
 }
 
 variable "admin_username" {
@@ -10,5 +10,5 @@ variable "admin_username" {
 
 variable "windows_agent_vm_name" {
   description = "The name of the bastion virtual machine"
-  default     = "windows_agent_vm_name-vm" 
+  default     = "windows-agent" 
 }
