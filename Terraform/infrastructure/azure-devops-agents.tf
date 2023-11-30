@@ -24,6 +24,9 @@ resource "azurerm_linux_virtual_machine" "linux_agent_vm" {
     sku       = "22_04-lts"
     version   = "latest"
   }
+
+    user_data = base64encode(file("${path.module}/azuredevops-linux-agent-init.sh"))
+
 }
 
 

@@ -24,7 +24,7 @@ generate "backend" {
 terraform {
   backend "azurerm" {
         key = "${path_relative_to_include()}/terraform.tfstate"
-        resource_group_name = "1-8615ac8a-playground-sandbox"
+        resource_group_name = "1-9522d252-playground-sandbox"
         storage_account_name = "pseudo00210"
         container_name = "prod"
   }
@@ -36,15 +36,15 @@ remote_state {
     backend = "azurerm"
     config = {
         key = "${path_relative_to_include()}/terraform.tfstate"
-        resource_group_name = "1-8615ac8a-playground-sandbox"
+        resource_group_name = "1-9522d252-playground-sandbox"
         storage_account_name = "pseudo00210"
         container_name = "prod"
     }
 }
 
 inputs= {
-     location = "westus"
-      resource_group_name = "1-8615ac8a-playground-sandbox"
+     location = "eastus"
+      resource_group_name = "1-9522d252-playground-sandbox"
       env_name = "prd"
       environement = "Production"
       storageAccount_name = "pseudo00210"
@@ -54,7 +54,7 @@ inputs= {
       securite_hub_key = "securite/terraform.tfstate"
 
       aks_service_principal= {
-        client_id     = "71b348e9-2b20-48ac-aecc-8805cd58b3d5"
-        client_secret = "e5M8Q~X6Q6xIwStRo0Eto0UI_dBRMVna5OQO3cN0"
+        client_id     = "120abaa0-6428-4c33-89e8-04cca579d559"
+        client_secret = "Pew8Q~KhjVZ4SoCMia4ESkaEV7Bj_zQDgPyPSbXV"
       }  
 }
