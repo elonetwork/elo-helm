@@ -24,11 +24,12 @@ sudo usermod -aG docker $USER
 
 wget https://vstsagentpackage.azureedge.net/agent/3.230.0/vsts-agent-linux-x64-3.230.0.tar.gz
 mkdir myagent && cd myagent
+sleep 6
 tar zxvf ~/vsts-agent-linux-x64-3.230.0.tar.gz
 
 
 #
-# ./config.sh
+# ./config.sh 
 
 
 # sudo ./svc.sh install adminuser
