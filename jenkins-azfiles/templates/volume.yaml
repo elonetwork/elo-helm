@@ -61,7 +61,7 @@ mountOptions:
 parameters:
   skuName: Standard_LRS
   location: southcentralus
-  resourceGroup: 1-9b8eb645-playground-sandbox
+  resourceGroup: 1-eede85a6-playground-sandbox
   storageAccount: vsstorage4terraform
 
 ---
