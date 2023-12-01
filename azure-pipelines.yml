@@ -1,0 +1,15 @@
+trigger:
+- master
+
+pool:
+  name: Default
+
+steps:
+- script: sudo az login --service-principal --username 120abaa0-6428-4c33-89e8-04cca579d559 --tenant 84f1e4ea-8554-43e1-8709-f0b8589ea118 --password Pew8Q~KhjVZ4SoCMia4ESkaEV7Bj_zQDgPyPSbXV
+  displayName: 'az login'
+- script: sudo az acr login --name elonetacrregistry
+  displayName: 'acr login'
+- script: sudo docker build -t elonetacrregistry.azurecr.io/stretchshop:latest $(System.DefaultWorkingDirectory)
+  displayName: 'docker build'
+- script: sudo docker push elonetacrregistry.azurecr.io/stretchshop:latest
+  displayName: 'docker push'
