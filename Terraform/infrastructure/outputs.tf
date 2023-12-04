@@ -34,3 +34,10 @@ output "linux_agent_vm_private_ip" {
 output "windows_agent_vm_private_ip" {
   value = azurerm_network_interface.windows_agent_nic.ip_configuration[0].private_ip_address
 }
+
+output "acr_credentials" {
+  value = {
+    username = azurerm_container_registry.acr.admin_username
+    password = azurerm_container_registry.acr.admin_password
+  }
+}
