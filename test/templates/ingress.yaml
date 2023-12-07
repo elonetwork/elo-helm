@@ -1,7 +1,7 @@
 apiVersion: networking.k8s.io/v1
 kind: Ingress
 metadata:
-  name: auth-ingress
+  name: test-ingress
   annotations:
     kubernetes.io/ingress.class: azure/application-gateway
 spec:
@@ -9,10 +9,10 @@ spec:
   - host: "www.ms.sisbaanas.com"
     http:
       paths:
-      - path: /auth/
+      - path: /test/
         pathType: Prefix
         backend:
           service:
-            name: auth-service
+            name: test-service
             port:
               number: 8080
