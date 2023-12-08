@@ -17,10 +17,8 @@ spec:
   accessModes:
     - ReadWriteOnce
   hostPath:
-    path: /path/on/your/host  # Replace this with the actual path on your host machine
-
+    path: /path/on/your/host
 ---
-# postgres-pvc.yaml
 apiVersion: v1
 kind: PersistentVolumeClaim
 metadata:
@@ -28,13 +26,12 @@ metadata:
 spec:
   accessModes:
     - ReadWriteOnce
-  storageClassName: ""  # Remove storage class reference
-  volumeName: postgres-pv  # Reference the name of your PV here
+  storageClassName: ""
+  volumeName: postgres-pv
   resources:
     requests:
       storage: 1Gi
 ---
-# postgres-deployment.yaml
 apiVersion: apps/v1
 kind: Deployment
 metadata:
@@ -54,7 +51,7 @@ spec:
           image: postgres:latest
           env:
             - name: POSTGRES_DB
-              value: mydatabase
+              value: users
             - name: POSTGRES_USER
               valueFrom:
                 secretKeyRef:
